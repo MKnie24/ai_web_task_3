@@ -1,0 +1,5 @@
+Flask
+requests
+Flask-SQLAlchemy
+better-profanity
+deep_translator
