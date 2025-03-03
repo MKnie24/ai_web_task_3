@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+< lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,306 +12,413 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
    <style>
+    /* General body styling */
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        background-color: #121212;
-        color: #ffffff;
+        font-family: Arial, sans-serif; /* Sets a clean, readable font */
+        margin: 0; /* Removes default margin */
+        padding: 0; /* Removes default padding */
+        text-align: center; /* Center-align text globally */
+        background-color: #121212; /* Dark theme background */
+        color: #ffffff; /* White text for contrast */
     }
+
+    /* Main container styling */
     .container {
-        width: 60%;
-        margin: 20px auto;
-        background: #1e1e1e;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+        width: 60%; /* Sets container width to 60% of the viewport */
+        margin: 20px auto; /* Centers container horizontally with margin */
+        background: #1e1e1e; /* Slightly lighter dark background */
+        padding: 20px; /* Adds space inside the container */
+        border-radius: 8px; /* Rounded corners for smoothness */
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1); /* Subtle glow effect */
     }
+    /* Remove default list styling for channel list */
     .channel-list {
         list-style: none;
         padding: 0;
     }
+
+    /* Style individual list items in the channel list */
     .channel-list li {
-        padding: 10px;
-        border-bottom: 1px solid #333;
+        padding: 10px; /* Add space around each item */
+        border-bottom: 1px solid #333; /* Subtle divider between items */
     }
+
+    /* General button styling */
     .btn {
-        padding: 10px 15px;
-        background: #490000;
-        color: white;
-        border: none;
-        cursor: pointer;
-        margin: 5px;
-        border-radius: 5px;
-        transition: background 0.3s;
+        padding: 10px 15px; /* Comfortable padding for clicks */
+        background: #490000; /* Dark red background */
+        color: white; /* White text for contrast */
+        border: none; /* Remove default border */
+        cursor: pointer; /* Indicate interactivity */
+        margin: 5px; /* Add space between buttons */
+        border-radius: 5px; /* Smooth rounded edges */
+        transition: background 0.3s; /* Smooth hover effect */
     }
+
+    /* Change button background on hover */
     .btn:hover {
-        background: #490000;
+        background: #700000; /* Slightly lighter red on hover */
     }
+
+    /* Chat box styling */
     .chat-box {
-        border: 1px solid #333;
-        padding: 15px;
-        max-height: 300px;
-        overflow-y: auto;
-        margin-bottom: 15px;
-        text-align: left;
-        background: #181818;
-        border-radius: 8px;
+        border: 1px solid #333; /* Dark border for contrast */
+        padding: 15px; /* Inner padding for readability */
+        max-height: 300px; /* Limits height, allow scrolling */
+        overflow-y: auto; /* Enables scrolling when needed */
+        margin-bottom: 15px; /* Space below chat box */
+        text-align: left; /* Aligns text to the left */
+        background: #181818; /* Dark background */
+        border-radius: 8px; /* Smooth edges */
     }
+
+    /* Input field styling */
     .input-field {
-        width: 80%;
-        padding: 10px;
-        margin: 10px;
-        border: 1px solid #444;
-        border-radius: 5px;
-        background-color: #222;
-        color: #ffffff;
+        width: 80%; /* Makes input take most of the width */
+        padding: 10px; /* Comfortable padding */
+        margin: 10px; /* Adds spacing around input */
+        border: 1px solid #444; /* Darker border for visibility */
+        border-radius: 5px; /* Smooth edges */
+        background-color: #222; /* Dark background for input field */
+        color: #ffffff; /* White text for contrast */
     }
+    /* Dialog box styling */
     .dialog-box {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        background: #222;
-        border: 1px solid #444;
-        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
-        text-align: center;
-        width: 300px;
-        border-radius: 10px;
+        position: fixed; /* Keep the dialog box in a fixed position */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Adjust to exact center */
+        padding: 20px; /* Add space inside the box */
+        background: #222; /* Dark background for contrast */
+        border: 1px solid #444; /* Subtle border */
+        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1); /* Light glow effect */
+        text-align: center; /* Centers text inside the box */
+        width: 300px; /* Set a fixed width */
+        border-radius: 10px; /* Smooth rounded corners */
     }
+
+    /* Input fields inside the dialog box */
     .dialog-box input {
-        width: 90%;
-        padding: 8px;
-        margin-top: 10px;
-        border: 1px solid #444;
-        border-radius: 5px;
-        background-color: #333;
-        color: #ffffff;
-        text-align: center;
+        width: 90%; /* Makes input field take up most of the dialog width */
+        padding: 8px; /* Comfortable padding */
+        margin-top: 10px; /* Spaces above the input field */
+        border: 1px solid #444; /* Darker border for visibility */
+        border-radius: 5px; /* Smooth edges */
+        background-color: #333; /* Dark background for input field */
+        color: #ffffff; /* White text for contrast */
+        text-align: center; /* Centers text inside the input field */
     }
+
+    /* Username display text */
     .username-display {
-        font-size: 16px;
-        color: #bbbbbb;
-        margin-top: 10px;
+        font-size: 16px; /* Sest a readable font size */
+        color: #bbbbbb; /* Light gray text */
+        margin-top: 10px; /* Adds space above the username */
     }
+
+    /* Headings (h1 and h2) are set to white */
     h2, h1 {
         color: #ffffff;
     }
 </style>
 </head>
 <body>
+    <!-- Root div is where the React-app will be rendered -->
     <div id="root"></div>
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+<script type="text/babel">
 
-        function NameDialog({ setName, cancel }) {
-            const storedName = localStorage.getItem("username") || "";
-            const [tempName, setTempName] = useState(storedName);
+    // Import React hooks for state management and side effects
+    const { useState, useEffect } = React;
 
-            const saveName = (e) => {
-                if (e.key === "Enter" && tempName.trim()) {
-                    localStorage.setItem("username", tempName);
-                    setName(tempName);
-                }
-            };
+    // Component for handling username input in a dialog box
+    function NameDialog({ setName, cancel }) {
+        // Retrieve stored username from localStorage (if available)
+        const storedName = localStorage.getItem("username") || "";
+        // State to hold temporary username input
+        const [tempName, setTempName] = useState(storedName);
 
-            return (
-                <div className="dialog-box">
-                    <p><strong>Enter your new Username or click the [Go Back] button to cancel</strong></p>
-                    <input
-                        type="text"
-                        value={tempName}
-                        onChange={(e) => setTempName(e.target.value)}
-                        onKeyDown={saveName}
-                    />
-                    <p>To apply the new username press [ENTER]</p>
-                    <button className="btn" onClick={cancel}>Go Back</button>
-                </div>
-            );
-        }
+        // Function to save the username when the Enter key is pressed
+        const saveName = (e) => {
+            if (e.key === "Enter" && tempName.trim()) { // Checks if Enter is pressed and input is not empty
+                localStorage.setItem("username", tempName); // Saves username to localStorage
+                setName(tempName); // Updates state with the new username
+            }
+        };
 
-    function ChannelList({ onSelectChannel, changeName }) {
+        return (
+            <div className="dialog-box">
+                {/* Instruction text for the user */}
+                <p><strong>Enter your new Username or click the [Go Back] button to cancel</strong></p>
+
+                {/* Input field for entering username */}
+                <input
+                    type="text"
+                    value={tempName} // Bind input to state
+                    onChange={(e) => setTempName(e.target.value)} // Update state on user input
+                    onKeyDown={saveName} // Save name when Enter is pressed
+                />
+
+                {/* Additional instruction text */}
+                <p>To apply the new username press [ENTER]</p>
+
+                {/* Button to cancel and close the dialog */}
+                <button className="btn" onClick={cancel}>Go Back</button>
+            </div>
+        );
+    }
+function ChannelList({ onSelectChannel, changeName }) {
+    // State for storing the list of available channels
     const [channels, setChannels] = useState([]);
+    // State for storing channels filtered by the search input
     const [filteredChannels, setFilteredChannels] = useState([]);
+    // State for tracking the current search term
     const [searchTerm, setSearchTerm] = useState("");
+    // State for handling potential errors when fetching channels
     const [error, setError] = useState(null);
+    // Retrieve the stored username from localStorage or set a default
     const username = localStorage.getItem("username") || "Unknown";
 
+    // Fetch the list of channels from the server when the component mounts
     useEffect(() => {
         axios.get('http://vm146.rz.uni-osnabrueck.de/hub/channels', {
-            headers: { 'Authorization': 'authkey Crr-K24d-2N' }
+            headers: { 'Authorization': 'authkey Crr-K24d-2N' } // Authorization header for API request
         })
         .then(response => {
+            // If the response contains channel data, update state
             if (response.data.channels) {
-                setChannels(response.data.channels);
-                setFilteredChannels(response.data.channels);
+                setChannels(response.data.channels); // Store full channel list
+                setFilteredChannels(response.data.channels); // Initialize filtered list
             } else {
-                setError("No channels found");
+                setError("No channels found"); // Handle case where no channels are returned
             }
         })
         .catch(error => {
-            console.error("Fetch error:", error);
-            setError("Error fetching channels: " + error.message);
+            console.error("Fetch error:", error); // Log error to console
+            setError("Error fetching channels: " + error.message); // Update error state
         });
-    }, []);
+    }, []); // The empty dependency array makes sure this effect runs only once when the component loads.
 
-    const handleSearch = (e) => {
-        const value = e.target.value.toLowerCase();
-        setSearchTerm(value);
-        setFilteredChannels(
-            channels.filter(channel =>
-                channel.name.toLowerCase().includes(value) ||
-                channel.type_of_service.toLowerCase().includes(value)
-            )
-        );
-    };
+// Function to handle search input and filter channels
+const handleSearch = (e) => {
+    const value = e.target.value.toLowerCase(); // Converts search input to lowercase for case-insensitive matching
+    setSearchTerm(value); // Updates the search term state with user input
 
-    if (error) return <p>{error}</p>;
-    if (channels.length === 0) return <p>Loading channels...</p>;
-
-    return (
-        <div>
-            {/* Underlined Active Username */}
-            <p style={{ fontSize: "18px", textDecoration: "underline" }}>
-                <strong>Active Username: {username}</strong>
-            </p>
-
-            {/* Change Username Button */}
-            <div style={{ marginBottom: "10px" }}>
-                <button className="btn" onClick={changeName}>Change Username</button>
-            </div>
-
-            {/* Search Bar */}
-            <input
-                type="text"
-                placeholder="Search for channels..."
-                value={searchTerm}
-                onChange={handleSearch}
-                className="input-field"
-                style={{ marginBottom: "15px" }}
-            />
-
-            {/* Available Channels */}
-            <h2>Available Channels</h2>
-
-            <ul className="channel-list">
-                {filteredChannels.map(channel => (
-                    <li key={channel.endpoint} style={{ padding: "10px", borderBottom: "1px solid #ccc" }}>
-                        <button className="btn" onClick={() => onSelectChannel(channel)} style={{ width: "100%", textAlign: "center" }}>
-                            {channel.name} ({channel.type_of_service})
-                        </button>
-                    </li>
-                ))}
-            </ul>
-            {filteredChannels.length === 0 && <p>No matching channels found</p>}
-        </div>
+    setFilteredChannels(
+        channels.filter(channel =>
+            channel.name.toLowerCase().includes(value) || // Checks if the channel name includes the search term
+            channel.type_of_service.toLowerCase().includes(value) // Checks if the channel type matches the search term
+        )
     );
-}
+};
 
-      function Chat({ channel, name, goBack }) {
+// If there's an error fetching channels, display the error message
+if (error) return <p>{error}</p>;
+
+// If channels haven't loaded yet, show a loading message
+if (channels.length === 0) return <p>Loading channels...</p>;
+
+return (
+    <div>
+        {/* Display the currently active username */}
+        <p style={{ fontSize: "18px", textDecoration: "underline" }}>
+            <strong>Active Username: {username}</strong> {/* Show username in bold and underlined */}
+        </p>
+
+        {/* Button to allow users to change their username */}
+        <div style={{ marginBottom: "10px" }}>
+            <button className="btn" onClick={changeName}>Change Username</button> {/* Trigger name change */}
+        </div>
+
+        {/* Input field for searching channels */}
+        <input
+            type="text" // Standard text input field
+            placeholder="Search for channels..." // Placeholder text inside the search box
+            value={searchTerm} // Bind input field to searchTerm state
+            onChange={handleSearch} // Call handleSearch function when input value changes
+            className="input-field" // Apply CSS styles from class
+            style={{ marginBottom: "15px" }} // Add space below the input field
+        />
+
+        {/* Heading for the channel list */}
+        <h2>Available Channels</h2>
+
+        {/* List of available channels */}
+        <ul className="channel-list">
+            {filteredChannels.map(channel => ( // Loops through filtered channels
+                <li key={channel.endpoint} style={{ padding: "10px", borderBottom: "1px solid #ccc" }}>
+                    {/* Button to select a channel */}
+                    <button
+                        className="btn" // Applies CSS styles for buttons
+                        onClick={() => onSelectChannel(channel)} // Calls onSelectChannel function when clicked
+                        style={{ width: "100%", textAlign: "center" }} // Makes button full-width and center text
+                    >
+                        {channel.name} ({channel.type_of_service}) {/* Display channel name and type */}
+                    </button>
+                </li>
+            ))}
+        </ul>
+
+        {/* Show a message if no channels match the search term */}
+        {filteredChannels.length === 0 && <p>No matching channels found</p>}
+    </div>
+);
+
+function Chat({ channel, name, goBack }) {
+    // State to store chat messages
     const [messages, setMessages] = useState([]);
+    // State to store the user's message input
     const [message, setMessage] = useState("");
+    // State to handle any errors
     const [error, setError] = useState(null);
 
+    // Fetches messages when the component mounts and periodically update
     useEffect(() => {
-        if (!channel) return;
+        if (!channel) return; // If no channel is selected, exit early
 
+        // Function to fetch messages from the server
         const fetchMessages = () => {
-            axios.get(channel.endpoint, { headers: { 'Authorization': `authkey ${channel.authkey}` } })
-            .then(response => {
-                setMessages(response.data);
+            axios.get(channel.endpoint, {
+                headers: { 'Authorization': `authkey ${channel.authkey}` } // Send authorization header
             })
-            .catch(error => setError(error.message));
+            .then(response => {
+                setMessages(response.data); // Update messages state with the response
+            })
+            .catch(error => setError(error.message)); // Store error message if request fails
         };
 
-        fetchMessages();
+        fetchMessages(); // Fetch messages initially
+
+        // Sets up an interval to fetch messages every 5 seconds
         const interval = setInterval(fetchMessages, 5000);
 
+        // Cleanup function to clear the interval when component unmounts or channel changes
         return () => clearInterval(interval);
-    }, [channel]);
+    }, [channel]); // Runs when `channel` changes
 
+    // Function to send a new message
     const sendMessage = () => {
-        if (!message.trim()) return alert("Enter a message!");
+        if (!message.trim()) return alert("Enter a message!"); // Prevents sending empty messages
 
+        // Sends a POST request with the message data
         axios.post(channel.endpoint, {
-            content: message,
-            sender: name,
-            timestamp: new Date().toISOString()
+            content: message, // Message content
+            sender: name, // Sender's name
+            timestamp: new Date().toISOString() // Current timestamp
         }, {
-            headers: { 'Authorization': `authkey ${channel.authkey}`, 'Content-Type': 'application/json' }
+            headers: {
+                'Authorization': `authkey ${channel.authkey}`, // Authorization header
+                'Content-Type': 'application/json' // Indicate JSON data format
+            }
         })
         .then(() => {
-            setMessage("");
-            setMessages(prev => [...prev, { sender: name, content: message, timestamp: new Date().toISOString() }]);
+            setMessage(""); // Clears the input field after sending
+            setMessages(prev => [...prev, { sender: name, content: message, timestamp: new Date().toISOString() }]); // Appends new message to UI
         })
         .catch(error => {
-            console.error("Message send error:", error.response ? error.response.data : error.message);
-            alert(`Error sending message: ${error.response ? error.response.data : error.message}`);
+            console.error("Message send error:", error.response ? error.response.data : error.message); // Log error to console
+            alert(`Error sending message: ${error.response ? error.response.data : error.message}`); // Alerts user of the error
         });
     };
 
-    // Handles Enter key to send message
-    const handleKeyPress = (e) => {
-        if (e.key === "Enter") {
-            sendMessage();
-        }
-    };
+    // Handles Enter key press to send the message
+const handleKeyPress = (e) => {
+    if (e.key === "Enter") { // Checks if the Enter key was pressed
+        sendMessage(); // Calls the function to send the message
+    }
+};
 
-    if (!channel) return <p>Select a channel to chat</p>;
-    if (error) return <p>Error: {error}</p>;
+// If no channel is selected, display a message asking the user to select one
+if (!channel) return <p>Select a channel to chat</p>;
+
+// If there is an error fetching messages, display the error
+if (error) return <p>Error: {error}</p>;
+
+return (
+    <div className="container">
+        {/* Display the chat header with the selected channel name */}
+        <h2>Chat - {channel.name}</h2>
+
+        {/* Button to return to the channel list */}
+        <button className="btn" onClick={goBack}>← Back to Channel List</button>
+
+        {/* Chat messages container */}
+        <div className="chat-box">
+            {/* If no messages exist, show a placeholder message */}
+            {messages.length === 0 ? <p>No messages yet...</p> :
+            messages.map((msg, index) => (
+                <p key={index}>
+                    {/* Display the sender's name in bold */}
+                    <strong>{msg.sender}</strong>: {msg.content}
+                    {/* Show timestamp of the message in a smaller font */}
+                    <span style={{ fontSize: "12px" }}> ({new Date(msg.timestamp).toLocaleTimeString()})</span>
+                </p>
+            ))}
+        </div>
+
+        {/* Input field for typing messages */}
+        <input
+            className="input-field"
+            type="text"
+            placeholder="Type a message..." // Placeholder text inside the input field
+            value={message} // Binds input value to message state
+            onChange={e => setMessage(e.target.value)} // Updates state when user types
+            onKeyDown={handleKeyPress} // Checks for Enter key to send message
+        />
+
+        {/* Button to send the message */}
+        <button className="btn" onClick={sendMessage}>Send</button>
+    </div>
+);
+
+function App() {
+    // State to track the currently selected channel
+    const [selectedChannel, setSelectedChannel] = useState(null);
+
+    // State to store the username, retrieved from localStorage or default to an empty string
+    const [name, setName] = useState(localStorage.getItem("username") || "");
+
+    // State to track whether the user is changing their username
+    const [changingName, setChangingName] = useState(false);
 
     return (
         <div className="container">
-            <h2>Chat - {channel.name}</h2>
-            <button className="btn" onClick={goBack}>← Back to Channel List</button>
-            <div className="chat-box">
-                {messages.length === 0 ? <p>No messages yet...</p> :
-                messages.map((msg, index) => (
-                    <p key={index}>
-                        <strong>{msg.sender}</strong>: {msg.content}
-                        <span style={{ fontSize: "12px" }}> ({new Date(msg.timestamp).toLocaleTimeString()})</span>
-                    </p>
-                ))}
-            </div>
-            {/* Input field now supports Enter to send messages */}
-            <input
-                className="input-field"
-                type="text"
-                placeholder="Type a message..."
-                value={message}
-                onChange={e => setMessage(e.target.value)}
-                onKeyDown={handleKeyPress}
-            />
-            <button className="btn" onClick={sendMessage}>Send</button>
+            {/* App title */}
+            <h1>AI Chat Client</h1>
+
+            {/* Conditional rendering based on user state */}
+            {changingName ? (
+                // Shows the NameDialog component when the user wants to change their name
+                <NameDialog
+                    setName={(newName) => {
+                        setName(newName); // Updates name state
+                        setChangingName(false); // Closes the name dialog
+                    }}
+                    cancel={() => setChangingName(false)} // Closes the dialog without changing the name
+                />
+            ) : !name ? (
+                // If no name is set, show the NameDialog on startup
+                <NameDialog
+                    setName={setName}
+                    cancel={() => {}} // Prevents cancellation on first entry
+                />
+            ) : !selectedChannel ? (
+                // If no channel is selected, show the ChannelList component
+                <ChannelList
+                    onSelectChannel={setSelectedChannel} // Sets selected channel when user picks one
+                    changeName={() => setChangingName(true)} // Allows user to change their name
+                />
+            ) : (
+                // If a channel is selected, show the Chat component
+                <Chat
+                    channel={selectedChannel} // Passes the selected channel to chat
+                    name={name} // Passes the username
+                    goBack={() => setSelectedChannel(null)} // Allows user to go back to channel list
+                />
+            )}
         </div>
     );
 }
 
-        function App() {
-            const [selectedChannel, setSelectedChannel] = useState(null);
-            const [name, setName] = useState(localStorage.getItem("username") || "");
-            const [changingName, setChangingName] = useState(false);
-
-            return (
-                <div className="container">
-                    <h1>AI Chat Client</h1>
-                    {changingName ? (
-                        <NameDialog setName={(newName) => { setName(newName); setChangingName(false); }} cancel={() => setChangingName(false)} />
-                    ) : !name ? (
-                        <NameDialog setName={setName} cancel={() => {}} />
-                    ) : !selectedChannel ? (
-                        <ChannelList onSelectChannel={setSelectedChannel} changeName={() => setChangingName(true)} />
-                    ) : (
-                        <Chat channel={selectedChannel} name={name} goBack={() => setSelectedChannel(null)} />
-                    )}
-                </div>
-            );
-        }
-
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
-</body>
-</html>
+// Renders the App component inside the 'root' div in the HTML
+ReactDOM.render(<App />, document.getElementById('root'));
